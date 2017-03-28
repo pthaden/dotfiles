@@ -1,0 +1,4 @@
+
+function unsetproxy() {
+    unset {http,https,ftp}_proxy
+}

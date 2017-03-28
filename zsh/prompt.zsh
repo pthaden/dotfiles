@@ -67,11 +67,20 @@ rb_prompt() {
   fi
 }
 
+node_prompt() {
+	local nodeVersion=$(node -v )
+	if [ "$nodeVersion" != "" ] ; then
+		echo "%{$fg_bold[yellow]%}node-$nodeVersion%{$reset_color%} "
+	else
+		echo ""
+	fi
+}
+
 directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(node_prompt)in $(directory_name) $(git_dirty)$(need_push)\n→ '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }

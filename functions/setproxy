@@ -1,0 +1,13 @@
+function setproxy() {
+    #shell proxy for Git, etc
+    export {http,https,ftp}_proxy='http://www-proxy.us.oracle.com:80'
+    printf "${http,https,ftp}_proxy"
+    
+    #npm proxy
+    npm config set http 'http://www-proxy.us.oracle.com:80'
+    npm config set https-proxy 'http://www-proxy.us.oracle.com:80'
+    cat ~/.npmrc
+
+    #bower proxy
+    cat ~/.bowerrc
+}

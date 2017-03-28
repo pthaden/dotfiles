@@ -1,0 +1,9 @@
+#updated version here: https://gist.github.com/garystafford/8197021
+
+function proxy_on(){
+   export PROXY_SERVER=www-proxy.us.oracle.com PROXY_PORT=80
+   export HTTP_PROXY="http://$PROXY_SERVER:$PROXY_PORT"
+   export HTTPS_PROXY="$HTTP_PROXY" FTP_PROXY="$HTTP_PROXY" ALL_PROXY="$HTTP_PROXY" \
+      NO_PROXY="localhost,127.0.0.1,*.$USERDNSDOMAIN" GIT_CURL_VERBOSE=1 GIT_SSL_NO_VERIFY=1
+   echo -e "\nProxy-related environment variables set."
+}
